@@ -1,47 +1,17 @@
-'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 const Contact = () => {
-  const [error, setError] = useState('');
-
- /** @param {React.FormEvent<HTMLFormElement>} e */
-const handleSubmit = (e: { preventDefault: () => void; target: any; }) => {
-  e.preventDefault();
-  const form = e.target;
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const phone = form.phone.value.trim();
-  const message = form.message.value.trim();
-
-  if (!name || (!email && !phone) || !message) {
-    setError('Please fill in your name, message, and either email or phone.');
-  } else {
-    setError('');
-    // form.submit(); // Netlify will handle the actual form submit
-  }
-};
-
   return (
     <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-blue-900 mb-4">Get in Touch</h2>
-        <p className="text-gray-600 mb-6">
-          Fill out the form below and we’ll reach out to you shortly.
+        <p className="text-gray-600 mb-10">
+          Have a question, project idea, or just want to say hi? Fill out the form below and we'll get back to you soon.
         </p>
-        {error && <p className="text-red-600 mb-4">{error}</p>}
       </div>
 
       <div className="max-w-3xl mx-auto">
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}
-          className="grid grid-cols-1 gap-6"
-        >
-          {/* Required for Netlify */}
-          <input type="hidden" name="form-name" value="contact" />
-
+        <form className="grid grid-cols-1 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Your Name
@@ -50,32 +20,21 @@ const handleSubmit = (e: { preventDefault: () => void; target: any; }) => {
               type="text"
               id="name"
               name="name"
-              className="mt-1 block w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               required
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-3 focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-          
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email Address Optional
+              Email Address
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="mt-1 block w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              required
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-3 focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
 
@@ -87,8 +46,8 @@ const handleSubmit = (e: { preventDefault: () => void; target: any; }) => {
               id="message"
               name="message"
               rows={5}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               required
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-3 focus:border-blue-500 focus:ring-blue-500"
             ></textarea>
           </div>
 
