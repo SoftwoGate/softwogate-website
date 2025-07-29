@@ -70,8 +70,9 @@ const About = () => {
         >
           <h3 className="text-xl font-semibold text-blue-900 mb-3">Who We Are</h3>
           <p className="text-gray-700 text-sm leading-relaxed">
-            SoftwoGate Solutions is a growing tech startup founded by a team of passionate university students. We specialize in custom software development, including desktop applications, mobile apps, websites, POS systems, and ERP solutions. Our approach blends creativity with functionality, ensuring every solution is both beautiful and practical.
+            SoftwoGate Solutions is a professional software development brand backed by a dedicated team of skilled developers. We specialize in building custom digital solutions—including desktop applications, mobile apps, websites, POS systems, and ERP platforms. Our focus is on delivering innovative, user-friendly, and efficient software that empowers businesses to thrive.
           </p>
+
         </motion.div>
       </div>
     </section>
