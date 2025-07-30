@@ -43,7 +43,6 @@ const Contact = () => {
           className="grid grid-cols-1 gap-6"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
           <div hidden>
             <label>
               Don’t fill this out if you're human:
