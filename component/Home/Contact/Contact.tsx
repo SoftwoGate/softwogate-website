@@ -5,8 +5,6 @@ const Contact = () => {
   const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
     const form = e.currentTarget;
     const formData = new FormData(form);
 
@@ -16,10 +14,11 @@ const Contact = () => {
     const message = (formData.get('message') || '').toString().trim();
 
     if (!name || (!email && !phone) || !message) {
+      e.preventDefault(); // prevent only if error
       setError('Please fill in your name, message, and either email or phone.');
     } else {
       setError('');
-      form.submit(); // Let Netlify handle the form submission
+      // DO NOT call form.submit() – Netlify will handle redirect automatically
     }
   };
 
@@ -37,15 +36,14 @@ const Contact = () => {
         <form
           name="contact"
           method="POST"
+          action="/thank-you"
           data-netlify="true"
           netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="grid grid-cols-1 gap-6"
         >
-          {/* Netlify hidden fields */}
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" />
-
           <div hidden>
             <label>
               Don’t fill this out if you're human:
